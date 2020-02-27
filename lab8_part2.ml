@@ -128,6 +128,7 @@ module MakeStack (Element: SERIALIZE) : (STACK with type element = Element.t) =
     let rec serialize (s : stack) : string =
       match s with
       | [] -> ""
+      | [hd] -> Element.serialize hd 
       | hd :: tl -> Element.serialize hd ^ ":" ^ serialize tl
   end ;;
 
